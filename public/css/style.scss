@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  header {
+    height: 70px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (min-width: 430px) {
+      height: 85px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      .clock-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .clock {
+          position: relative;
+          width: 65px;
+          height: 65px;
+          @media screen and (min-width: 430px) {
+            width: 75px;
+            height: 75px;
+          }
+          img {
+            width: 100%;
+            border: 3px solid black;
+            border-radius: 99px;
+            background-color: black;
+          }
+        }
+
+        .aiguilles {
+          background-color: #ffda44;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 20px;
+          width: 3px;
+          transform-origin: bottom center;
+          transition: all 0.5s ease-in;
+        }
+
+        .aiguilles.hour {
+          transform: translate(-50%, -100%) rotate(0deg);
+        }
+
+        .aiguilles.minute {
+          transform: translate(-50%, -100%) rotate(0deg);
+          height: 25px;
+        }
+
+        .aiguilles.second {
+          transform: translate(-50%, -100%) rotate(0deg);
+          height: 25px;
+          background-color: #e74c3c;
+        }
+
+        .center-point {
+          background-color: #e74c3c;
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+        }
+      }
+      h1 {
+        font-size: 1rem;
+        @media screen and (min-width: 430px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: auto 10px;
+      img {
+        cursor: pointer;
+      }
+    }
+    .burger-icon {
+      width: auto;
+      margin: auto 10px;
+      .burger {
+        position: relative;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        cursor: pointer;
+        display: block;
+
+        @media screen and (min-width: 430px) {
+          width: 40px;
+          height: 30px;
+        }
+      }
+
+      .burger input {
+        display: none;
+      }
+
+      .burger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: black;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+        @media screen and (min-width: 430px) {
+          height: 4px;
+        }
+      }
+
+      .burger span:nth-of-type(1) {
+        top: 0px;
+        transform-origin: left center;
+      }
+
+      .burger span:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: left center;
+      }
+
+      .burger span:nth-of-type(3) {
+        top: 100%;
+        transform-origin: left center;
+        transform: translateY(-50%);
+      }
+
+      .burger input:checked ~ span:nth-of-type(1) {
+        top: 0;
+        left: 5px;
+        transform: rotate(405deg);
+      }
+
+      .burger input:checked ~ span:nth-of-type(2) {
+        width: 0%;
+        opacity: 0;
+      }
+
+      .burger input:checked ~ span:nth-of-type(3) {
+        top: 28px;
+        left: 5px;
+        transform: rotate(-405deg);
+      }
+    }
+  }
+
+  .homepage-hero {
+    width: 100%;
+    height: auto;
+    .last-article {
+      width: 100%;
+      height: 100%;
+      max-height: 400px;
+
+      video {
+        width: 100%;
+        height: 100%;
+        .src_mp4 {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .title_span {
+        position: absolute;
+        z-index: 20;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 70px;
+        text-align: center;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        @media screen and (min-width: 460px) {
+          top: 120px;
+        }
+
+        .title_brand {
+          color: #ffffff;
+          font-size: 2.4rem;
+        }
+        .title_brand,
+        .title_material {
+          color: #ffffff;
+          backdrop-filter: blur(1px);
+        }
+        .link_buy {
+          display: flex;
+          justify-content: center;
+          margin: 10px auto;
+          gap: 10px;
+          color: #2997ff;
+          backdrop-filter: blur(1px);
+          border-radius: 99px;
+
+          span {
+            font-size: 1rem;
+            cursor: pointer;
+            backdrop-filter: black;
+          }
+        }
+        .title_material {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    .categorie {
+      display: flex;
+      width: 100%;
+      gap: 10px;
+
+      .card_category {
+        width: 300px;
+        height: 300px;
+        background-image: url("../img/mixed_metals.svg");
+        background-size: cover;
+      }
+    }
+  }
+}
