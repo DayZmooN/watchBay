@@ -162,29 +162,39 @@ body header .burger-icon .burger input:checked ~ span:nth-of-type(3) {
   left: 5px;
   transform: rotate(-405deg);
 }
-body .homepage-hero {
+body .homepage {
   width: 100%;
   height: auto;
 }
-body .homepage-hero .last-article {
+body .homepage .hero_homepage {
+  width: 100%;
+  height: 60vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../video/rolex.mp4") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+@media screen and (min-width: 780px) {
+  body .homepage .hero_homepage {
+    height: 40vw;
+  }
+}
+body .homepage .hero_homepage video {
   width: 100%;
   height: 100%;
-  max-height: 400px;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-body .homepage-hero .last-article video {
+body .homepage .hero_homepage video .src_mp4 {
   width: 100%;
   height: 100%;
 }
-body .homepage-hero .last-article video .src_mp4 {
-  width: 100%;
-  height: 100%;
-}
-body .homepage-hero .last-article .title_span {
+body .homepage .hero_homepage .container_brand_materiaux {
   position: absolute;
   z-index: 20;
   left: 50%;
   transform: translateX(-50%);
-  top: 70px;
+  top: 30px;
   text-align: center;
   white-space: nowrap;
   display: flex;
@@ -192,21 +202,21 @@ body .homepage-hero .last-article .title_span {
   gap: 1rem;
 }
 @media screen and (min-width: 460px) {
-  body .homepage-hero .last-article .title_span {
-    top: 120px;
+  body .homepage .hero_homepage .container_brand_materiaux {
+    top: 30px;
   }
 }
-body .homepage-hero .last-article .title_span .title_brand {
+body .homepage .hero_homepage .container_brand_materiaux .title_brand {
   color: #ffffff;
   font-size: 2.4rem;
 }
-body .homepage-hero .last-article .title_span .title_brand,
-body .homepage-hero .last-article .title_span .title_material {
+body .homepage .hero_homepage .container_brand_materiaux .title_brand,
+body .homepage .hero_homepage .container_brand_materiaux .title_materiaux {
   color: #ffffff;
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
 }
-body .homepage-hero .last-article .title_span .link_buy {
+body .homepage .hero_homepage .container_brand_materiaux .link_buy {
   display: flex;
   justify-content: center;
   margin: 10px auto;
@@ -216,23 +226,32 @@ body .homepage-hero .last-article .title_span .link_buy {
           backdrop-filter: blur(1px);
   border-radius: 99px;
 }
-body .homepage-hero .last-article .title_span .link_buy span {
+body .homepage .hero_homepage .container_brand_materiaux .link_buy .span_link_buy {
   font-size: 1rem;
   cursor: pointer;
   -webkit-backdrop-filter: black;
           backdrop-filter: black;
 }
-body .homepage-hero .last-article .title_span .title_material {
+body .homepage .hero_homepage .container_brand_materiaux .title_materiaux {
   font-size: 1.1rem;
 }
-body .homepage-hero .categorie {
+body .homepage .categorie {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   width: 100%;
   gap: 10px;
+  align-items: center;
+  margin: 20px auto;
 }
-body .homepage-hero .categorie .card_category {
+body .homepage .categorie .card_category {
   width: 300px;
   height: 300px;
   background-image: url("../img/mixed_metals.svg");
   background-size: cover;
+  position: relative;
+}
+body .homepage .categorie .card_category .h3_category {
+  font: size 1.1rem;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

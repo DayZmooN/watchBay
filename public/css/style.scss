@@ -172,35 +172,44 @@ body {
     }
   }
 
-  .homepage-hero {
+  .homepage {
     width: 100%;
     height: auto;
-    .last-article {
+    .hero_homepage {
       width: 100%;
-      height: 100%;
-      max-height: 400px;
+      height: 60vw;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../video/rolex.mp4") no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      @media screen and (min-width: 780px) {
+        height: 40vw;
+      }
 
       video {
         width: 100%;
         height: 100%;
+        position: absolute;
+        object-fit: cover;
+
         .src_mp4 {
           width: 100%;
           height: 100%;
         }
       }
-      .title_span {
+      .container_brand_materiaux {
         position: absolute;
         z-index: 20;
         left: 50%;
         transform: translateX(-50%);
-        top: 70px;
+        top: 30px;
         text-align: center;
         white-space: nowrap;
         display: flex;
         flex-direction: column;
         gap: 1rem;
         @media screen and (min-width: 460px) {
-          top: 120px;
+          top: 30px;
         }
 
         .title_brand {
@@ -208,7 +217,7 @@ body {
           font-size: 2.4rem;
         }
         .title_brand,
-        .title_material {
+        .title_materiaux {
           color: #ffffff;
           backdrop-filter: blur(1px);
         }
@@ -221,27 +230,37 @@ body {
           backdrop-filter: blur(1px);
           border-radius: 99px;
 
-          span {
+          .span_link_buy {
             font-size: 1rem;
             cursor: pointer;
             backdrop-filter: black;
           }
         }
-        .title_material {
+        .title_materiaux {
           font-size: 1.1rem;
         }
       }
     }
     .categorie {
+      width: 100%;
       display: flex;
+      flex-direction: column;
       width: 100%;
       gap: 10px;
+      align-items: center;
+      margin: 20px auto;
 
       .card_category {
         width: 300px;
         height: 300px;
         background-image: url("../img/mixed_metals.svg");
         background-size: cover;
+        position: relative;
+
+        .h3_category {
+          font: size 1.1rem;
+          color: #fff;
+        }
       }
     }
   }
