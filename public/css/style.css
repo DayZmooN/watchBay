@@ -168,8 +168,7 @@ body .homepage {
 }
 body .homepage .hero_homepage {
   width: 100%;
-  height: 40vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../video/rolex.mp4") no-repeat center center fixed;
+  background: url("../video/rolex.mp4") no-repeat center center fixed;
   background-size: cover;
   position: relative;
 }
@@ -300,36 +299,115 @@ body .homepage .categorie .card_category .content_category .span_content_categor
   font-size: 1rem;
   color: #2997ff;
 }
-body .homepage .product_container {
+body .homepage .product_container_last_collection {
+  width: 100%;
+  margin: auto;
+}
+body .homepage .product_container_last_collection .h1_product_container {
+  font-size: 1.3rem;
+  margin: 20px 20px;
+}
+body .homepage .product_container_last_collection .product_container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 20px auto;
+}
+@media screen and (min-width: 780px) {
+  body .homepage .product_container_last_collection .product_container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}
+body .homepage .product_container_last_collection .product_container .card_product {
+  width: 300px;
+  text-align: center;
+}
+@media screen and (min-width: 780px) {
+  body .homepage .product_container_last_collection .product_container .card_product {
+    width: 280px;
+  }
+}
+@media screen and (min-width: 1080px) {
+  body .homepage .product_container_last_collection .product_container .card_product {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  body .homepage .product_container_last_collection .product_container .card_product {
+    width: 370px;
+  }
+}
+body .homepage .product_container_last_collection .product_container .card_product .img_card_product {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.15);
+}
+@media screen and (min-width: 1280px) {
+  body .homepage .product_container_last_collection .product_container .card_product .img_card_product {
+    width: 100%;
+  }
+}
+body .homepage .product_container_last_collection .product_container .card_product .content_product {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin: 20px auto;
+  gap: 20px;
 }
-body .homepage .product_container .h1_product_container {
-  font-size: 1.3rem;
-  margin: 20px auto;
+body .homepage .product_container_last_collection .product_container .card_product .content_product .h2_title_product {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1d1d1f;
 }
-body .homepage .product_container .card_product {
-  width: 300px;
-  height: 300px;
+body .homepage .product_container_last_collection .product_container .card_product .content_product .button_product {
+  width: 65.23px;
+  height: 24px;
+  left: 120.05px;
+  top: 161.39px;
+  background: #0071e3;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  transition: 0.6s ease-in;
 }
-@media screen and (min-width: 780px) {
-  body .homepage .product_container .card_product {
-    width: 250px;
-    height: 150px;
-  }
+body .homepage .product_container_last_collection .product_container .card_product .content_product .button_product:hover {
+  box-shadow: none;
 }
-@media screen and (min-width: 1080px) {
-  body .homepage .product_container .card_product {
-    width: 250px;
-    height: 150px;
-  }
+body .homepage .product_container_last_collection .product_container .card_product .content_product .button_product span {
+  height: 14px;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.12px;
+  color: #ffffff;
 }
-body .homepage .product_container .card_product .img_card_product {
+body .homepage .product_container_last_collection .product_container .card_product .content_product .h4_content_product {
+  color: #1d1d1f;
+  font-size: 1rem;
+  font-weight: 400;
+}
+body .homepage .product_container_last_collection .product_container .card_product .content_product .span_link_content_product {
+  color: #0071e3;
+  font-size: 1.05em;
+  font-weight: 300;
+}
+body .homepage .social_container {
   width: 100%;
-  height: 100%;
-  border-radius: 12px;
+  background-color: #c0c0c0;
+  display: flex;
+}
+body .homepage .social_container .icon_social {
+  width: 64px;
+  height: 64px;
+  color: #0071e3;
 }/*# sourceMappingURL=style.css.map */
