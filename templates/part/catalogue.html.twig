@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue
+{% endblock %}
+
+{% block body %}
+	<section class="catalogue">
+		<h3 class="h3_catalogue">Tous les modèles</h3>
+		<div class="container_catalogue">
+			{% for montre in montres %}
+				<div class="card_product">
+					<img class="img_card_product" src="{{ asset('img/' ~ montre.thumbnail) }}" alt="">
+					<div class="content_product">
+						<h2 class="h2_title_product">{{ montre.name }}</h2>
+						<div class="span_content_static">
+							<span class="span_static_content_produc">Tout pour vous plaire.</span>
+							<br>
+							<span>Même le prix.</span>
+						</div>
+						<h4 class="h4_content_product">À partir de
+							{{montre.prix}}€</h4>
+						<a href="{{ path('detail', {'id': montre.id}) }}">
+							<button class="button_product">
+								<span>Acheter</span>
+							</button>
+						</a>
+
+
+						<span class="span_link_content_product">En savoir plus ></span>
+
+					</div>
+				</div>
+				{# {{ dump(montres) }} #}
+
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

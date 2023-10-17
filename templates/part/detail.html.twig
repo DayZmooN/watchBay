@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail du produit
+{% endblock %}
+
+{% block body %}
+	<section class="detail_product">
+		<div class="container_title">
+			<h1 class="h1_title_container">Acheter une
+				{{ montre.name }}</h1>
+			<h4 class="h4_prix_container">À partir de
+				{{montre.prix}}€</h4>
+
+		</div>
+		<div class="promotion_title">
+			<span class="span_promotion_title">Obtenez entre 30 € à 800 € pour la reprise de votre appareil**</span>
+		</div>
+		<div class="container_product">
+			<div class="pictur_product">
+				<img class="img_card_product" src="{{ asset('img/' ~ montre.thumbnail) }}" alt="">
+			</div>
+			<div class="model_content_product">
+				<h6 class="h6_model">Modèle</h6>
+				<div class="model_product">
+					<div class="container_h1_h3_model">
+						<h1 class="h1_model">{{montre.name}}</h1>
+						<h3 class="h3_model">Écran de
+							{{montre.dimensions}}</h3>
+					</div>
+					<div class="prix_model">
+						<h4 class="h4_prix">À partir de
+							{{montre.prix}}€</h4>
+					</div>
+				</div>
+				<div class="description_model">
+					<span class="span_description">Description</span>
+					<p class="p_description">{{montre.description}}</p>
+				</div>
+				<div class="btn_container_product">
+					<button class="btn_add_panier_product">Ajouter au Panier</button>
+				</div>
+
+			</div>
+		</div>
+		<div class="characteristic_product">
+			<h5 class="h5_title_characteristic">Caracteristique</h5>
+			<div class="h5_title_characteristic">{{montre.dimensions}}</div>
+		</div>
+
+	</section>
+{% endblock %}

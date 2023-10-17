@@ -1,21 +1,24 @@
 {% block header %}
 	<header>
-		<div class="logo">
-			<div class="clock-container">
-				<div class="clock">
-					<img src="../img/cadrant.png" alt="" class="logo">
-					<div class="aiguilles hour"></div>
-					<div class="aiguilles minute"></div>
-					<div class="aiguilles second"></div>
-					<div class="center-point"></div>
+		<a href="{{ path('app_page') }}">
+			<div class="logo">
+				<div class="clock-container">
+					<div class="clock">
+						<img src="../img/cadrant.png" alt="" class="logo">
+						<div class="aiguilles hour"></div>
+						<div class="aiguilles minute"></div>
+						<div class="aiguilles second"></div>
+						<div class="center-point"></div>
+					</div>
 				</div>
+				<h1 class="h1_logo">WatchBay</h1>
 			</div>
-			<h1>WatchBay</h1>
-		</div>
+		</a>
+
 		<div class="icon">
 			<img src="../img/icons/search.svg" alt="search">
-			<img src="../img/icons/user.svg" alt="search">
-			<img src="../img/icons/panier.svg" alt="search">
+			<a href="{{ path('login') }}"><img src="../img/icons/user.svg" alt="login"></a>
+			<img src="../img/icons/panier.svg" alt="panier">
 			<div class="burger-icon">
 				<label for="burger" class="burger">
 					<input id="burger" type="checkbox">
@@ -28,11 +31,11 @@
 	</div>
 
 	{# <div class="modal">
-					<ul>
-						<li>Home</li>
-						<li>Catalogue</li>
-						<li>sign in</li>
-						<li></li>
-					</ul>
-				</div> #}
+																							<ul>
+																								<li>Home</li>
+																								<li>Catalogue</li>
+																								<li>sign in</li>
+																								<li></li>
+																							</ul>
+																						</div> #}
 </header>{% endblock %}

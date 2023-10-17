@@ -48,6 +48,9 @@ class Montre
     #[ORM\OneToMany(mappedBy: 'montre', targetEntity: avis::class)]
     private Collection $montreId;
 
+    #[ORM\Column(length: 400)]
+    private ?string $thumbnail = null;
+
     public function __construct()
     {
         $this->commade = new ArrayCollection();
@@ -256,6 +259,18 @@ class Montre
                 $montreId->setMontre(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(string $thumbnail): static
+    {
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }

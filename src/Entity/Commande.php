@@ -27,7 +27,7 @@ class Commande
     #[ORM\Column]
     private ?float $frais_livraison = null;
 
-    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'commade')]
+    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'Commande')]
     private Collection $montres;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]

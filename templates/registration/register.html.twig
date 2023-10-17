@@ -1,23 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
 
-    <h1>Register</h1>
+	<h1>Register</h1>
 
-    {{ form_errors(registrationForm) }}
+	{{ form_start(registrationForm) }}
+	{# {{ form_row(registrationForm.name) }}
+			{{ form_row(registrationForm.lastname) }} #}
+	{{ form_row(registrationForm.email) }}
+	{{ form_row(registrationForm.plainPassword) }}
+	{# {{ form_row(registrationForm.birthday) }}
+				{{ form_row(registrationForm.phone) }} #}
+	{{ dump(registrationForm) }}
+	{# {{ form_row(registrationForm.address) }} #}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+	{# {{ form_row(registrationForm.isVerified) }} #}
+	{# {{ form_row(registrationForm.agree) }} #}
+{{ form_end(registrationForm) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+
 {% endblock %}
+
+
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+	<div class="form-container">
+		<p class="title">Create account</p>
+		<p class="sub-title">Let's get started with your 30 days free trial</p>
+
+		{{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
+
+		<div class="input-container">
+			{{ form_row(registrationForm.name, {'attr': {'class': 'input', 'placeholder': 'Name'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.email, {'attr': {'class': 'input', 'placeholder': 'Email'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.plainPassword, {
+                'label': 'Password'
+            }) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.lastname, {'attr': {'class': 'input', 'placeholder': 'Last Name'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.birthday, {'attr': {'class': 'input', 'placeholder': 'Birthday'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.phone, {'attr': {'class': 'input', 'placeholder': 'Phone'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.address, {'attr': {'class': 'input', 'placeholder': 'Address'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.agreeTerms) }}
+		</div>
+		{{ form_row(registrationForm.agreeTerms) }}
+
+		<button type="submit" class="form-btn">Create account</button>
+
+		{{ form_end(registrationForm) }}
+
+		<p class="sign-up-label">
+			Already have an account?
+			<span class="sign-up-link">Log in</span>
+		</p>
+
+		<!-- Votre code HTML pour les boutons de connexion Apple et Google ici -->
+
+	</div>
+{% endblock %} #}

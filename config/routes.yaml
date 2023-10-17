@@ -3,3 +3,6 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+app_product_detail:
+    path: '/product/'
+    controller: App\Controller\ProductController::detail

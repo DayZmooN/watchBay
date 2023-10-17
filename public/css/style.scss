@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
     height: 70px;
     background: #f5f5f5;
     display: flex;
+
     align-items: center;
     justify-content: space-between;
     @media screen and (min-width: 430px) {
@@ -82,8 +84,10 @@ body {
           border-radius: 50%;
         }
       }
-      h1 {
+      .h1_logo {
         font-size: 1rem;
+        color: #1d1d1f;
+
         @media screen and (min-width: 430px) {
           font-size: 1.2rem;
         }
@@ -250,12 +254,15 @@ body {
       margin: 20px auto;
       @media screen and (min-width: 780px) {
         flex-direction: row;
+        justify-content: space-around;
+        max-width: 1220px;
       }
 
       .card_category {
         width: 300px;
         height: 300px;
-        margin: auto;
+        // margin: auto;
+        border-radius: 12px;
 
         background-image: url("../img/mixed_metals.svg");
         background-size: cover;
@@ -307,6 +314,9 @@ body {
     .product_container_last_collection {
       width: 100%;
       margin: auto;
+      @media screen and (min-width: 1500px) {
+        max-width: 1640px;
+      }
 
       .h1_product_container {
         font-size: 1.3rem;
@@ -318,11 +328,12 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 30px;
         margin: 20px auto;
         @media screen and (min-width: 780px) {
           flex-direction: row;
-          justify-content: space-evenly;
+          // justify-content: space-evenly;
           flex-wrap: wrap;
         }
 
@@ -408,16 +419,583 @@ body {
         }
       }
     }
+  }
+  .social_container {
+    background-color: #c0c0c0;
 
-    .social_container {
+    .share_contenaire {
       width: 100%;
-      background-color: #c0c0c0;
-      display: flex;
+      @media screen and (min-width: 780px) {
+        display: flex;
+        align-items: center;
+      }
 
-      .icon_social {
-        width: 64px;
-        height: 64px;
-        color: #0071e3;
+      .span_social {
+        font-size: 1.1rem;
+        padding: 5px;
+        font-weight: 700;
+        color: #1d1d1f;
+      }
+      .card {
+        width: 100%;
+        height: fit-content;
+        // background-color: rgb(238, 238, 238);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 25px 25px;
+        gap: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+      }
+
+      /* for all social containers*/
+      .socialContainer {
+        width: 52px;
+        height: 52px;
+        background-color: rgb(44, 44, 44);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition-duration: 0.3s;
+      }
+      /* instagram*/
+      .containerOne:hover {
+        background-color: #d62976;
+        transition-duration: 0.3s;
+      }
+      /* twitter*/
+      .containerTwo:hover {
+        background-color: #00acee;
+        transition-duration: 0.3s;
+      }
+      /* linkdin*/
+      .containerThree:hover {
+        background-color: #0072b1;
+        transition-duration: 0.3s;
+      }
+      /* Whatsapp*/
+      .containerFour:hover {
+        background-color: #128c7e;
+        transition-duration: 0.3s;
+      }
+
+      .socialContainer:active {
+        transform: scale(0.9);
+        transition-duration: 0.3s;
+      }
+
+      .socialSvg {
+        width: 17px;
+      }
+
+      .socialSvg path {
+        fill: rgb(255, 255, 255);
+      }
+
+      .socialContainer:hover .socialSvg {
+        animation: slide-in-top 0.3s both;
+      }
+
+      @keyframes slide-in-top {
+        0% {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+  //page detail product
+
+  .detail_product {
+    width: 100%;
+    & > .container_title {
+      margin: 20px 10px;
+      & > .h1_title_container {
+        color: #1d1d1f;
+        font-size: 2.688;
+        font-weight: 800;
+      }
+      & > .h4_prix_container {
+        font-size: 0.938rem;
+        font-weight: 300;
+        text-align: right;
+        color: #1d1d1f;
+      }
+      & > .promotion_title {
+        width: fit-content;
+        padding: 8px;
+        background-color: #f5f5f7;
+        border-radius: 18px;
+
+        & > .span_promotion_title {
+          font-size: 0.75rem;
+          font-weight: 400;
+          white-space: nowrap;
+          @media screen and (max-width: 343px) {
+            white-space: inherit;
+            color: #0071e3;
+          }
+        }
+      }
+    }
+    & > .promotion_title {
+      width: fit-content;
+      padding: 8px;
+      background-color: #f5f5f7;
+      border-radius: 18px;
+
+      & > .span_promotion_title {
+        font-size: 0.75rem;
+        font-weight: 400;
+        white-space: nowrap;
+        @media screen and (max-width: 343px) {
+          white-space: inherit;
+        }
+      }
+    }
+    & > .container_product {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      margin: 20px auto;
+
+      @media screen and (min-width: 780px) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 20px;
+      }
+
+      & > .pictur_product {
+        width: 100%;
+        height: 335px;
+        display: flex;
+        justify-content: space-between;
+        @media screen and (min-width: 780px) {
+          width: 644px;
+          height: 450px;
+        }
+        @media screen and (min-width: 880px) {
+          width: 684px;
+          height: 480px;
+        }
+        @media screen and (min-width: 1080px) {
+          width: 844px;
+          height: 550px;
+        }
+
+        & > .img_card_product {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          margin: auto;
+          @media screen and (min-width: 780px) {
+            border-radius: 12px;
+          }
+        }
+      }
+      & > .model_content_product {
+        @media screen and (min-width: 780px) {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+        }
+        & > .h6_model {
+          font-size: 1.371rem;
+          font-weight: 700;
+          @media screen and (min-width: 780px) {
+            text-align: left;
+          }
+        }
+
+        & > .model_product {
+          width: 290px;
+          border: 1px solid #1d1d1f;
+          border-radius: 12px;
+          padding: 11px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: auto;
+          gap: 10px;
+          row-gap: 10px;
+          & > .container_h1_h3_model {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            & > .h1_model {
+              font-size: 1.063rem;
+              color: #1d1d1f;
+              font-weight: 700;
+            }
+            & > .h3_model {
+              font-size: 0.75rem;
+              color: #1d1d1f;
+            }
+          }
+          .prix_model {
+            & > .h4_prix {
+              font-size: 0.75rem;
+            }
+          }
+        }
+        & > .description_model {
+          width: 290px;
+          background-color: #f5f5f7;
+          padding: 10px;
+          border-radius: 15px;
+          margin: 30px auto;
+
+          & > .span_description {
+            font-weight: 600;
+            font-size: 1.313rem;
+          }
+          & > .p_description {
+            font-weight: 300;
+            font-size: 0.75rem;
+            margin: 10px auto;
+          }
+        }
+        & > .btn_container_product {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          & > .btn_add_panier_product {
+            /* Rectangle 11 */
+            padding: 10px;
+            background: #0071e3;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            border: 0px;
+            color: #fff;
+            font-weight: 300;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+              "Helvetica Neue", sans-serif;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  //catalogue
+  .catalogue {
+    width: 100%;
+    & > .h3_catalogue {
+      font-size: 1.66rem;
+      color: #1d1d1f;
+      text-align: center;
+      padding: 20px;
+      @media screen and (min-width: 780px) {
+        font-size: 2.66rem;
+      }
+    }
+    & > .container_catalogue {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-gap: 10px;
+      & > .card_product {
+        // width: 300px;
+        text-align: center;
+
+        // @media screen and (min-width: 780px) {
+        //   width: 280px;
+        // }
+        // @media screen and (min-width: 1080px) {
+        //   width: 300px;
+        // }
+        // @media screen and (min-width: 1280px) {
+        //   width: 370px;
+        // }
+
+        & > .img_card_product {
+          // height: 100%;
+          // width: 100%;
+          cursor: pointer;
+          // max-height: 300px;
+          border-radius: 12px;
+          box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.15);
+          @media screen and (min-width: 1280px) {
+            width: 100%;
+          }
+        }
+        & > .content_product {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+
+          & > .h2_title_product {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1d1d1f;
+          }
+
+          .button_product {
+            width: 65.23px;
+            height: 24px;
+            left: 120.05px;
+            top: 161.39px;
+            background: #0071e3;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            border-radius: 980px;
+            border: none;
+            cursor: pointer;
+            transition: 0.6s ease-in;
+            &:hover {
+              box-shadow: none;
+            }
+
+            & > span {
+              height: 14px;
+              font-family: "Arial";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 16px;
+              letter-spacing: -0.12px;
+              color: #ffffff;
+            }
+          }
+          & > .h4_content_product {
+            color: #1d1d1f;
+            font-size: 1rem;
+            font-weight: 400;
+          }
+          & > .span_link_content_product {
+            color: #0071e3;
+            font-size: 1.05em;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+
+  //login
+  // Variables
+  $primary-bg-color: #fff;
+  $input-border-color: #c0c0c0;
+  $page-link-color: #747474;
+  $button-bg-color: teal;
+  $button-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  $common-font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  $apple-button-bg-color: #000;
+  $google-button-border-color: #747474;
+  $common-button-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  .form-container {
+    width: 350px;
+    height: 500px;
+    background-color: $primary-bg-color;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    margin: 50px auto;
+
+    .title {
+      text-align: center;
+      font-family: $common-font-family;
+      margin: 10px 0 30px 0;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 15px;
+
+      .input {
+        border-radius: 20px;
+        border: 1px solid $input-border-color;
+        outline: 0 !important;
+        box-sizing: border-box;
+        padding: 12px 15px;
+      }
+
+      .page-link {
+        text-decoration: underline;
+        margin: 0;
+        text-align: end;
+        color: $page-link-color;
+        text-decoration-color: $page-link-color;
+
+        &:hover {
+          color: #000;
+        }
+
+        .page-link-label {
+          cursor: pointer;
+          font-family: $common-font-family;
+          font-size: 9px;
+          font-weight: 700;
+        }
+      }
+
+      .form-btn {
+        padding: 10px 15px;
+        font-family: $common-font-family;
+        border-radius: 20px;
+        border: 0 !important;
+        outline: 0 !important;
+        background: $button-bg-color;
+        color: white;
+        cursor: pointer;
+        box-shadow: $button-shadow;
+
+        &:active {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .sign-up-label {
+      margin: 0;
+      font-size: 10px;
+      color: $page-link-color;
+      font-family: $common-font-family;
+
+      .sign-up-link {
+        margin-left: 1px;
+        font-size: 11px;
+        text-decoration: underline;
+        text-decoration-color: $button-bg-color;
+        color: $button-bg-color;
+        cursor: pointer;
+        font-weight: 800;
+        font-family: $common-font-family;
+      }
+    }
+
+    .buttons-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 20px;
+      gap: 15px;
+
+      .apple-login-button,
+      .google-login-button {
+        border-radius: 20px;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        box-shadow: $common-button-shadow;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $common-font-family;
+        font-size: 11px;
+        gap: 5px;
+      }
+
+      .apple-login-button {
+        background-color: $apple-button-bg-color;
+        color: #fff;
+        border: 2px solid $apple-button-bg-color;
+      }
+
+      .google-login-button {
+        border: 2px solid $google-button-border-color;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    margin: 20px auto;
+    @media screen and (min-width: 780px) {
+      display: flex;
+      justify-content: space-around;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+
+      .clock-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .clock {
+          position: relative;
+          width: 65px;
+          height: 65px;
+          @media screen and (min-width: 430px) {
+            width: 75px;
+            height: 75px;
+          }
+          img {
+            width: 100%;
+            border: 3px solid black;
+            border-radius: 99px;
+            background-color: black;
+          }
+        }
+
+        .aiguilles {
+          background-color: #ffda44;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 20px;
+          width: 3px;
+          transform-origin: bottom center;
+          transition: all 0.5s ease-in;
+        }
+
+        .aiguilles.hour {
+          transform: translate(-50%, -100%) rotate(0deg);
+        }
+
+        .aiguilles.minute {
+          transform: translate(-50%, -100%) rotate(0deg);
+          height: 25px;
+        }
+
+        .aiguilles.second {
+          transform: translate(-50%, -100%) rotate(0deg);
+          height: 25px;
+          background-color: #e74c3c;
+        }
+
+        .center-point {
+          background-color: #e74c3c;
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+        }
+      }
+      h1 {
+        font-size: 1rem;
+        @media screen and (min-width: 430px) {
+          font-size: 1.2rem;
+        }
       }
     }
   }
