@@ -23,7 +23,7 @@ class Avis
     #[ORM\ManyToOne(inversedBy: 'montreId')]
     private ?Montre $montre = null;
 
-    #[ORM\ManyToOne(inversedBy: 'avis')]
+    #[ORM\ManyToOne(inversedBy: 'Avis')]
     #[ORM\JoinColumn(nullable: false)]
     private ?users $avisId = null;
 

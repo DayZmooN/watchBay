@@ -18,7 +18,7 @@ class Fournisseur
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'fournisseur')]
+    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'Fournisseur')]
     private Collection $montres;
 
     public function __construct()

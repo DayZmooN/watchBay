@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Register
 {% endblock %}
@@ -11,24 +11,26 @@
 	<h1>Register</h1>
 
 	{{ form_start(registrationForm) }}
-	{# {{ form_row(registrationForm.name) }}
-			{{ form_row(registrationForm.lastname) }} #}
+	{{ form_row(registrationForm.name) }}
+	{{ form_row(registrationForm.lastname) }}
+
 	{{ form_row(registrationForm.email) }}
 	{{ form_row(registrationForm.plainPassword) }}
 	{# {{ form_row(registrationForm.birthday) }}
-				{{ form_row(registrationForm.phone) }} #}
-	{{ dump(registrationForm) }}
+							{{ form_row(registrationForm.phone) }} #}
+	{# {{ dump(registrationForm) }} #}
 	{# {{ form_row(registrationForm.address) }} #}
 
 	{# {{ form_row(registrationForm.isVerified) }} #}
 	{# {{ form_row(registrationForm.agree) }} #}
-{{ form_end(registrationForm) }}
+{# {{ form_end(registrationForm) }} #}
 
 
-{% endblock %}
+{# {% endblock %} #}
 
 
-{# {% extends 'base.html.twig' %}
+
+{% extends 'base.html.twig' %}
 
 {% block title %}Register
 {% endblock %}
@@ -45,7 +47,7 @@
 		{{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
 
 		<div class="input-container">
-			{{ form_row(registrationForm.name, {'attr': {'class': 'input', 'placeholder': 'Name'}}) }}
+		{{ form_row(registrationForm.name) }}
 		</div>
 
 		<div class="input-container">
@@ -58,7 +60,7 @@
             }) }}
 		</div>
 
-		<div class="input-container">
+		{# <div class="input-container">
 			{{ form_row(registrationForm.lastname, {'attr': {'class': 'input', 'placeholder': 'Last Name'}}) }}
 		</div>
 
@@ -77,7 +79,7 @@
 		<div class="input-container">
 			{{ form_row(registrationForm.agreeTerms) }}
 		</div>
-		{{ form_row(registrationForm.agreeTerms) }}
+		{{ form_row(registrationForm.agreeTerms) }} #}
 
 		<button type="submit" class="form-btn">Create account</button>
 
@@ -91,4 +93,4 @@
 		<!-- Votre code HTML pour les boutons de connexion Apple et Google ici -->
 
 	</div>
-{% endblock %} #}
+{% endblock %}

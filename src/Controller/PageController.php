@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 
 
 class PageController extends AbstractController
@@ -60,7 +62,7 @@ class PageController extends AbstractController
     }
 
 
-    #[Route('/login', name: 'login')]
+    #[Route('/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -90,5 +92,12 @@ class PageController extends AbstractController
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
+    }
+    #[Route("/", name: "dump_session")]
+    public function dumpSession(SessionInterface $session)
+    {
+        dump($session->all()); // Cela va afficher toutes les données de la session
+
+        return $this->render('index.html.twig');
     }
 }

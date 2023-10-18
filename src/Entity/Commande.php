@@ -30,7 +30,7 @@ class Commande
     #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'Commande')]
     private Collection $montres;
 
-    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\ManyToOne(inversedBy: 'Commande')]
     #[ORM\JoinColumn(nullable: false)]
     private ?users $userid = null;
 

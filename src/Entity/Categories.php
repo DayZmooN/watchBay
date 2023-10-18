@@ -18,7 +18,7 @@ class Categories
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'categories')]
+    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'Categories')]
     private Collection $montres;
 
     public function __construct()

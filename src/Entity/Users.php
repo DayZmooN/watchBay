@@ -31,10 +31,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $lastname = null;
 
     #[ORM\Column]
@@ -135,8 +135,6 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->name;
     }
-
-
     public function setName(string $name): static
     {
         $this->name = $name;

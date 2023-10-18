@@ -45,7 +45,7 @@ class Montre
     #[ORM\ManyToMany(targetEntity: categories::class, inversedBy: 'montres')]
     private Collection $categories;
 
-    #[ORM\OneToMany(mappedBy: 'montre', targetEntity: avis::class)]
+    #[ORM\OneToMany(mappedBy: 'montres', targetEntity: avis::class)]
     private Collection $montreId;
 
     #[ORM\Column(length: 400)]
