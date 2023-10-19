@@ -39,45 +39,40 @@
 
 		{{ form_start(registrationForm) }}
 
-		{# <div class="input-container">
-																	{{ form_row(registrationForm.name) }}
-																</div> #}
+		<div class="input-container">
+			{{ form_row(registrationForm.firstname) }}
+		</div>
 
 		<div class="input-container">
 			{{ form_row(registrationForm.email) }}
 
 		</div>
-
+		<div class="input-container">
+			{{ form_row(registrationForm.lastname)}}
+		</div>
 		<div class="input-container">
 			{{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
 		</div>
-		{{ form_row(registrationForm.agreeTerms) }}
+		<div class="input-container">
+			{{ form_row(registrationForm.birthday, {'attr': {'class': 'input', 'placeholder': 'Birthday'}}) }}
+		</div>
 
-		{# <div class="input-container">
-																					{{ form_row(registrationForm.lastname, {'attr': {'class': 'input', 'placeholder': 'Last Name'}}) }}
-																				</div>
-																		
-																				<div class="input-container">
-																					{{ form_row(registrationForm.birthday, {'attr': {'class': 'input', 'placeholder': 'Birthday'}}) }}
-																				</div>
-																		
-																				<div class="input-container">
-																					{{ form_row(registrationForm.phone, {'attr': {'class': 'input', 'placeholder': 'Phone'}}) }}
-																				</div>
-																		
-																				<div class="input-container">
-																					{{ form_row(registrationForm.address, {'attr': {'class': 'input', 'placeholder': 'Address'}}) }}
-																				</div>
-																		
-																				<div class="input-container">
-																					{{ form_row(registrationForm.agreeTerms) }}
-																				</div>
-																				{{ form_row(registrationForm.agreeTerms) }} #}
+		<div class="input-container">
+			{{ form_row(registrationForm.phone, {'attr': {'class': 'input', 'placeholder': 'Phone'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.address, {'attr': {'class': 'input', 'placeholder': 'Address'}}) }}
+		</div>
+
+		<div class="input-container">
+			{{ form_row(registrationForm.agreeTerms) }}
+		</div>
+
 
 		<button type="submit" class="form-btn">{{ form_end(registrationForm) }}Create account</button>
-
 
 		<p class="sign-up-label">
 			Already have an account?

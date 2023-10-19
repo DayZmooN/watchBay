@@ -29,13 +29,20 @@
 			</div>
 		</div>
 	</div>
+	{% if app.user %}
+		<div class="mb-3">
+
+			{{ app.user.userIdentifier }},
+			<a href="{{ path('app_logout') }}">Logout</a>
+		</div>
+	{% endif %}
 
 	{# <div class="modal">
-																								<ul>
-																									<li>Home</li>
-																									<li>Catalogue</li>
-																									<li>sign in</li>
-																									<li></li>
-																								</ul>
-																							</div> #}
+																												<ul>
+																													<li>Home</li>
+																													<li>Catalogue</li>
+																													<li>sign in</li>
+																													<li></li>
+																												</ul>
+																											</div> #}
 </header>{% endblock %}

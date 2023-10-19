@@ -11,6 +11,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -43,7 +46,32 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-        ;
+            ->add('firstname', TextType::class, [
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter your first name',
+                    ]),
+                ],
+            ])
+            ->add('lastname', TextType::class, [
+                'required' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter your last name',
+                    ]),
+                ],
+            ])
+            ->add('address', TextType::class, [
+                'required' => false,
+            ])
+            ->add('phone', TelType::class, [
+                'required' => false,
+            ])
+            ->add('birthday', DateType::class, [
+                'widget' => 'single_text',
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
