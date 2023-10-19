@@ -757,13 +757,12 @@ body .catalogue > .container_catalogue > .card_product > .content_product > .spa
 }
 body .form-container {
   width: 350px;
-  height: 500px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   box-sizing: border-box;
   padding: 20px 30px;
-  margin: 50px auto;
+  margin: auto;
 }
 body .form-container .title {
   text-align: center;
@@ -779,30 +778,30 @@ body .form-container .form {
   gap: 18px;
   margin-bottom: 15px;
 }
-body .form-container .form .input {
+body .form-container .input {
   border-radius: 20px;
   border: 1px solid #c0c0c0;
   outline: 0 !important;
   box-sizing: border-box;
   padding: 12px 15px;
 }
-body .form-container .form .page-link {
+body .form-container .page-link {
   text-decoration: underline;
   margin: 0;
   text-align: end;
   color: #747474;
   text-decoration-color: #747474;
 }
-body .form-container .form .page-link:hover {
-  color: #000;
-}
-body .form-container .form .page-link .page-link-label {
+body .form-container .page-link-label {
   cursor: pointer;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 9px;
   font-weight: 700;
 }
-body .form-container .form .form-btn {
+body .form-container .page-link-label:hover {
+  color: #000;
+}
+body .form-container .form-btn {
   padding: 10px 15px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border-radius: 20px;
@@ -813,7 +812,7 @@ body .form-container .form .form-btn {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-body .form-container .form .form-btn:active {
+body .form-container .form-btn:active {
   box-shadow: none;
 }
 body .form-container .sign-up-label {
@@ -830,9 +829,8 @@ body .form-container .sign-up-label .sign-up-link {
   color: teal;
   cursor: pointer;
   font-weight: 800;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-body .form-container .buttons-container {
+body .buttons-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -840,27 +838,18 @@ body .form-container .buttons-container {
   margin-top: 20px;
   gap: 15px;
 }
-body .form-container .buttons-container .apple-login-button,
-body .form-container .buttons-container .google-login-button {
-  border-radius: 20px;
-  box-sizing: border-box;
-  padding: 10px 15px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 11px;
-  gap: 5px;
-}
-body .form-container .buttons-container .apple-login-button {
+body .buttons-container .apple-login-button {
   background-color: #000;
   color: #fff;
   border: 2px solid #000;
 }
-body .form-container .buttons-container .google-login-button {
+body .buttons-container .google-login-button {
   border: 2px solid #747474;
+}
+body .buttons-container .apple-icon,
+body .buttons-container .google-icon {
+  font-size: 18px;
+  margin-bottom: 1px;
 }
 body footer {
   width: 100%;

@@ -17,7 +17,20 @@
 
 		<div class="icon">
 			<img src="../img/icons/search.svg" alt="search">
-			<a href="{{ path('app_login') }}"><img src="../img/icons/user.svg" alt="login"></a>
+			{% if app.user %}
+				<!-- Utilisateur connecté -->
+				<div class="mb-3">
+					<img src="../img/icons/user.svg" alt="User logged in">
+					<!-- Mettez ici l'icône que vous voulez -->
+					{# {{ app.user.userIdentifier }}, #}<a href="{{ path('app_logout') }}"> Logout</a>
+				</div>
+			{% else %}
+				<!-- Utilisateur non connecté -->
+				<a href="{{ path('app_login') }}">
+					<img src="../img/icons/user.svg" alt="login">
+				</a>
+			{% endif %}
+
 			<img src="../img/icons/panier.svg" alt="panier">
 			<div class="burger-icon">
 				<label for="burger" class="burger">
@@ -29,20 +42,14 @@
 			</div>
 		</div>
 	</div>
-	{% if app.user %}
-		<div class="mb-3">
 
-			{{ app.user.userIdentifier }},
-			<a href="{{ path('app_logout') }}">Logout</a>
-		</div>
-	{% endif %}
 
 	{# <div class="modal">
-																												<ul>
-																													<li>Home</li>
-																													<li>Catalogue</li>
-																													<li>sign in</li>
-																													<li></li>
-																												</ul>
-																											</div> #}
+																																	<ul>
+																																		<li>Home</li>
+																																		<li>Catalogue</li>
+																																		<li>sign in</li>
+																																		<li></li>
+																																	</ul>
+																																</div> #}
 </header>{% endblock %}

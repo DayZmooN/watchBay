@@ -6,7 +6,7 @@
 {% block body %}
 	<div class="form-container">
 		<p class="title">Welcome back</p>
-		<form method="post">
+		<form method="post" class="form">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
@@ -19,24 +19,23 @@
 				</div>
 			{% endif %}
 
-			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-			<label for="inputEmail">Email</label>
-			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-			<label for="inputPassword">Password</label>
-			<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="input" placeholder="Email" autocomplete="email" required autofocus>
+			<input type="password" name="password" id="inputPassword" class="input" placeholder="Password" autocomplete="current-password" required>
 
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			<p class="page-link">
 				<span class="page-link-label">Forgot Password?</span>
 			</p>
-			<button class="btnbtn-lgbtn-primary" type="submit">
+			<button class="form-btn" type="submit">
 				Sign in
 			</button>
-			<a href="{{ path('app_register') }}">
-				<p class="sign-up-label">
-					Don't have an account?<span class="sign-up-link">Sign up</span>
-				</p>
-			</a>
+
+			<p class="sign-up-label">
+				Don't have an account?<a href="{{ path('app_register') }}">
+					<span class="sign-up-link">Sign up</span>
+				</a>
+			</p>
+
 		</form>
 	</div>
 {% endblock %}
