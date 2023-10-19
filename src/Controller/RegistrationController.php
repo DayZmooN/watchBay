@@ -30,14 +30,9 @@ class RegistrationController extends AbstractController
     {
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
-
         $form->handleRequest($request);
 
-        dump($form);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // Symfony a déjà lié les valeurs du formulaire à l'objet $user, inutile de le faire manuellement
-
             // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
@@ -49,27 +44,23 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // generate a signed URL and email it to the user
-            $this->emailVerifier->sendEmailConfirmation(
-                'app_verify_email',
-                $user,
+            // generate a signed url and email it to the user
+            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('watchbay@yopmail.com', 'Admin'))
+                    ->from(new Address('watchbay2@yopmail.com', 'watchbay2'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
+            // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('_profiler_home');
         }
-        $form->handleRequest($request);
 
-        dump($form->createView());
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
-
 
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
