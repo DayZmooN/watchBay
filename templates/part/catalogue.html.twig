@@ -6,6 +6,16 @@
 {% block body %}
 	<section class="catalogue">
 		<h3 class="h3_catalogue">Tous les modèles</h3>
+
+		{# Ajout du formulaire de filtre ici #}
+		<div class="filter-form">
+			{{ form_start(form) }}
+			{{ form_row(form.Categories) }}
+			{{ form_row(form.Materiaux) }}
+			<button type="submit">Filtrer</button>
+			{{ form_end(form) }}
+		</div>
+
 		<div class="container_catalogue">
 			{% for montre in montres %}
 				<div class="card_product">
@@ -24,14 +34,9 @@
 								<span>Acheter</span>
 							</button>
 						</a>
-
-
 						<span class="span_link_content_product">En savoir plus ></span>
-
 					</div>
 				</div>
-				{# {{ dump(montres) }} #}
-
 			{% endfor %}
 		</div>
 	</section>

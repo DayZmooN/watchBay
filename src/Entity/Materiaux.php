@@ -18,7 +18,7 @@ class Materiaux
     #[ORM\Column(length: 120)]
     private ?string $type = null;
 
-    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'Materieaux')]
+    #[ORM\ManyToMany(targetEntity: Montre::class, mappedBy: 'Materiaux')]
     private Collection $montres;
 
     public function __construct()
@@ -55,7 +55,7 @@ class Materiaux
     {
         if (!$this->montres->contains($montre)) {
             $this->montres->add($montre);
-            $montre->addMaterieaux($this);
+            $montre->addMateriaux($this);
         }
 
         return $this;
@@ -64,7 +64,7 @@ class Materiaux
     public function removeMontre(Montre $montre): static
     {
         if ($this->montres->removeElement($montre)) {
-            $montre->removeMaterieaux($this);
+            $montre->removeMateriaux($this);
         }
 
         return $this;

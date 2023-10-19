@@ -24,24 +24,47 @@ class MontreRepository extends ServiceEntityRepository
     //    /**
     //     * @return Montre[] Returns an array of Montre objects
     //     */
-    public function findByExampleField($value): array
+    public function findByFilters($Categories = null, $Materiaux = null)
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
+        $qb = $this->createQueryBuilder('m');
+
+        if ($Categories) {
+            $CategoriesIds = [];
+            foreach ($Categories as $category) {
+                $CategoriesIds[] = $category->getId();
+            }
+
+            $qb->innerJoin('m.Categories', 'c')
+                ->andWhere('c.id IN (:Categories)')
+                ->setParameter('Categories', $CategoriesIds);
+        }
+
+        if ($Materiaux) {
+            $MateriauxIds = [];
+            foreach ($Materiaux as $materiau) {
+                $MateriauxIds[] = $materiau->getId();
+            }
+
+            $qb->innerJoin('m.Materiaux', 'mat')
+                ->andWhere('mat.id IN (:Materiaux)')
+                ->setParameter('Materiaux', $MateriauxIds);
+        }
+
+        return $qb->getQuery()->getResult();
     }
 
 
-    public function findOneBySomeField($value): ?Montre
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
+
+
+
+
+
+    // public function findOneBySomeField($value): ?Montre
+    // {
+    //     return $this->createQueryBuilder('m')
+    //         ->andWhere('m.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }

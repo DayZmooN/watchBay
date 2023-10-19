@@ -40,7 +40,7 @@ class Montre
     private Collection $Fournisseur;
 
     #[ORM\ManyToMany(targetEntity: Materiaux::class, inversedBy: 'montres')]
-    private Collection $materieaux;
+    private Collection $Materiaux;
 
     #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'montres')]
     private Collection $Categories;
@@ -55,7 +55,7 @@ class Montre
     {
         $this->commade = new ArrayCollection();
         $this->Fournisseur = new ArrayCollection();
-        $this->materieaux = new ArrayCollection();
+        $this->Materiaux = new ArrayCollection();
         $this->Categories = new ArrayCollection();
         $this->montreId = new ArrayCollection();
     }
@@ -188,23 +188,23 @@ class Montre
     /**
      * @return Collection<int, Materiaux>
      */
-    public function getMaterieaux(): Collection
+    public function getMateriaux(): Collection
     {
-        return $this->materieaux;
+        return $this->Materiaux;
     }
 
-    public function addMaterieaux(Materiaux $materieaux): static
+    public function addMateriaux(Materiaux $Materiaux): static
     {
-        if (!$this->materieaux->contains($materieaux)) {
-            $this->materieaux->add($materieaux);
+        if (!$this->Materiaux->contains($Materiaux)) {
+            $this->Materiaux->add($Materiaux);
         }
 
         return $this;
     }
 
-    public function removeMaterieaux(Materiaux $materieaux): static
+    public function removeMateriaux(Materiaux $Materiaux): static
     {
-        $this->materieaux->removeElement($materieaux);
+        $this->Materiaux->removeElement($Materiaux);
 
         return $this;
     }

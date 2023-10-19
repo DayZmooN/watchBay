@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Montre;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\MontreFilterType;
+use App\Repository\MontreRepository;
 
 
 class PageController extends AbstractController
@@ -40,16 +42,25 @@ class PageController extends AbstractController
         ]);
     }
     #[Route('/catalogue', name: 'catalogue')]
-    public function catalogue(EntityManagerInterface $entityManager): Response
+    public function catalogue(EntityManagerInterface $entityManager, Request $request): Response
     {
-        // Utilisation du MontreRepository pour récupérer toutes les montres
+        $form = $this->createForm(MontreFilterType::class);
+        $form->handleRequest($request);
+
         $montreRepository = $entityManager->getRepository(Montre::class);
 
-        // Appel de la méthode 'findAll' pour obtenir toutes les montres
-        $montres = $montreRepository->findAll();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $Categories = $form->get('Categories')->getData();
+            $Materiaux = $form->get('Materiaux')->getData();
+
+            $montres = $montreRepository->findByFilters($Categories, $Materiaux);
+        } else {
+            $montres = $montreRepository->findAll();
+        }
 
         return $this->render('part/catalogue.html.twig', [
             'montres' => $montres,
+            'form' => $form->createView(),
         ]);
     }
 }
