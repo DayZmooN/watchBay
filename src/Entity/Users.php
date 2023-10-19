@@ -3,8 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -32,34 +31,22 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $name = null;
+    private ?string $firstname = null;
 
-    #[ORM\Column(length: 150, nullable: true)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $lastname = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $birthday = null;
-
-    #[ORM\Column(length: 10)]
-    private ?string $phone = null;
-
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\OneToMany(mappedBy: 'userid', targetEntity: Commande::class, orphanRemoval: true)]
-    private Collection $commandes;
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $phone = null;
 
-    #[ORM\OneToMany(mappedBy: 'avisId', targetEntity: Avis::class)]
-    private Collection $avis;
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $birthday = null;
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
-
-    public function __construct()
-    {
-        $this->commandes = new ArrayCollection();
-        $this->avis = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -131,49 +118,26 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->name;
-    }
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-        return $this;
+        return $this->firstname;
     }
 
+    public function setFirstname(?string $firstname): static
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
 
     public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname): static
+    public function setLastname(?string $lastname): static
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getBirthday(): ?\DateTimeImmutable
-    {
-        return $this->birthday;
-    }
-
-    public function setBirthday(\DateTimeImmutable $birthday): static
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    public function getPhone(): ?string
-    {
-        return $this->phone;
-    }
-
-    public function setPhone(string $phone): static
-    {
-        $this->phone = $phone;
 
         return $this;
     }
@@ -183,69 +147,33 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->address;
     }
 
-    public function setAddress(string $address): static
+    public function setAddress(?string $address): static
     {
         $this->address = $address;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Commande>
-     */
-    public function getCommandes(): Collection
+    public function getPhone(): ?string
     {
-        return $this->commandes;
+        return $this->phone;
     }
 
-    public function addCommande(Commande $commande): static
+    public function setPhone(?string $phone): static
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->setUserid($this);
-        }
+        $this->phone = $phone;
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): static
+    public function getBirthday(): ?\DateTimeInterface
     {
-        if ($this->commandes->removeElement($commande)) {
-            // set the owning side to null (unless already changed)
-            if ($commande->getUserid() === $this) {
-                $commande->setUserid(null);
-            }
-        }
-
-        return $this;
+        return $this->birthday;
     }
 
-    /**
-     * @return Collection<int, Avis>
-     */
-    public function getAvis(): Collection
+    public function setBirthday(?\DateTimeInterface $birthday): static
     {
-        return $this->avis;
-    }
-
-    public function addAvi(Avis $avi): static
-    {
-        if (!$this->avis->contains($avi)) {
-            $this->avis->add($avi);
-            $avi->setAvisId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAvi(Avis $avi): static
-    {
-        if ($this->avis->removeElement($avi)) {
-            // set the owning side to null (unless already changed)
-            if ($avi->getAvisId() === $this) {
-                $avi->setAvisId(null);
-            }
-        }
+        $this->birthday = $birthday;
 
         return $this;
     }
