@@ -16,13 +16,21 @@
 		</a>
 
 		<div class="icon">
+
+			<div class="catalogue">
+				<a href="{{ path('catalogue') }}">
+					<span>Catalogue</span>
+
+				</a>
+			</div>
 			<img src="../img/icons/search.svg" alt="search">
 			{% if app.user %}
 				<!-- Utilisateur connecté -->
 				<div class="mb-3">
 					<img src="../img/icons/user.svg" alt="User logged in">
 					<!-- Mettez ici l'icône que vous voulez -->
-					{# {{ app.user.userIdentifier }}, #}<a href="{{ path('app_logout') }}"> Logout</a>
+					{# {{ app.user.userIdentifier }}, #}
+						<a href="{{ path('app_logout') }}"> Logout</a>
 				</div>
 			{% else %}
 				<!-- Utilisateur non connecté -->
@@ -45,11 +53,11 @@
 
 
 	{# <div class="modal">
-																																	<ul>
-																																		<li>Home</li>
-																																		<li>Catalogue</li>
-																																		<li>sign in</li>
-																																		<li></li>
-																																	</ul>
-																																</div> #}
+																																													<ul>
+																																														<li>Home</li>
+																																														<li>Catalogue</li>
+																																														<li>sign in</li>
+																																														<li></li>
+																																													</ul>
+																																												</div> #}
 </header>{% endblock %}

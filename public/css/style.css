@@ -189,7 +189,7 @@ body .homepage .hero_homepage video .src_mp4 {
   width: 100%;
   height: 100%;
 }
-body .homepage .hero_homepage .container_brand_materiaux {
+body .homepage .hero_homepage .container_brand_Materiaux {
   position: absolute;
   z-index: 20;
   left: 50%;
@@ -202,21 +202,21 @@ body .homepage .hero_homepage .container_brand_materiaux {
   gap: 1rem;
 }
 @media screen and (min-width: 460px) {
-  body .homepage .hero_homepage .container_brand_materiaux {
+  body .homepage .hero_homepage .container_brand_Materiaux {
     top: 30px;
   }
 }
-body .homepage .hero_homepage .container_brand_materiaux .title_brand {
+body .homepage .hero_homepage .container_brand_Materiaux .title_brand {
   color: #ffffff;
   font-size: 2.4rem;
 }
-body .homepage .hero_homepage .container_brand_materiaux .title_brand,
-body .homepage .hero_homepage .container_brand_materiaux .title_materiaux {
+body .homepage .hero_homepage .container_brand_Materiaux .title_brand,
+body .homepage .hero_homepage .container_brand_Materiaux .title_Materiaux {
   color: #ffffff;
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
 }
-body .homepage .hero_homepage .container_brand_materiaux .link_buy {
+body .homepage .hero_homepage .container_brand_Materiaux .link_buy {
   display: flex;
   justify-content: center;
   margin: 10px auto;
@@ -224,13 +224,13 @@ body .homepage .hero_homepage .container_brand_materiaux .link_buy {
   color: #2997ff;
   border-radius: 99px;
 }
-body .homepage .hero_homepage .container_brand_materiaux .link_buy .span_link_buy {
+body .homepage .hero_homepage .container_brand_Materiaux .link_buy .span_link_buy {
   font-size: 1rem;
   cursor: pointer;
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
 }
-body .homepage .hero_homepage .container_brand_materiaux .title_materiaux {
+body .homepage .hero_homepage .container_brand_Materiaux .title_Materiaux {
   font-size: 1.1rem;
 }
 body .homepage .categorie {

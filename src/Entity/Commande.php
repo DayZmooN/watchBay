@@ -32,7 +32,7 @@ class Commande
 
     #[ORM\ManyToOne(inversedBy: 'Commande')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?users $userid = null;
+    private ?Users $userid = null;
 
     public function __construct()
     {
@@ -119,12 +119,12 @@ class Commande
         return $this;
     }
 
-    public function getUserid(): ?users
+    public function getUserid(): ?Users
     {
         return $this->userid;
     }
 
-    public function setUserid(?users $userid): static
+    public function setUserid(?Users $userid): static
     {
         $this->userid = $userid;
 

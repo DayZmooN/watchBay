@@ -20,12 +20,12 @@ final class Version20231018082906 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE users CHANGE name prenom VARCHAR(100) NOT NULL');
+        $this->addSql('ALTER TABLE Users CHANGE name prenom VARCHAR(100) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE users CHANGE prenom name VARCHAR(100) NOT NULL');
+        $this->addSql('ALTER TABLE Users CHANGE prenom name VARCHAR(100) NOT NULL');
     }
 }

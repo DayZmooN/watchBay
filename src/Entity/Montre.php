@@ -33,19 +33,19 @@ class Montre
     #[ORM\Column(length: 255)]
     private ?string $dimensions = null;
 
-    #[ORM\ManyToMany(targetEntity: commande::class, inversedBy: 'montres')]
+    #[ORM\ManyToMany(targetEntity: Commande::class, inversedBy: 'montres')]
     private Collection $commade;
 
-    #[ORM\ManyToMany(targetEntity: fournisseur::class, inversedBy: 'montres')]
-    private Collection $fournisseur;
+    #[ORM\ManyToMany(targetEntity: Fournisseur::class, inversedBy: 'montres')]
+    private Collection $Fournisseur;
 
-    #[ORM\ManyToMany(targetEntity: materiaux::class, inversedBy: 'montres')]
+    #[ORM\ManyToMany(targetEntity: Materiaux::class, inversedBy: 'montres')]
     private Collection $materieaux;
 
-    #[ORM\ManyToMany(targetEntity: categories::class, inversedBy: 'montres')]
-    private Collection $categories;
+    #[ORM\ManyToMany(targetEntity: Categories::class, inversedBy: 'montres')]
+    private Collection $Categories;
 
-    #[ORM\OneToMany(mappedBy: 'montres', targetEntity: avis::class)]
+    #[ORM\OneToMany(mappedBy: 'montres', targetEntity: Avis::class)]
     private Collection $montreId;
 
     #[ORM\Column(length: 400)]
@@ -54,9 +54,9 @@ class Montre
     public function __construct()
     {
         $this->commade = new ArrayCollection();
-        $this->fournisseur = new ArrayCollection();
+        $this->Fournisseur = new ArrayCollection();
         $this->materieaux = new ArrayCollection();
-        $this->categories = new ArrayCollection();
+        $this->Categories = new ArrayCollection();
         $this->montreId = new ArrayCollection();
     }
 
@@ -138,14 +138,14 @@ class Montre
     }
 
     /**
-     * @return Collection<int, commande>
+     * @return Collection<int, Commande>
      */
     public function getCommade(): Collection
     {
         return $this->commade;
     }
 
-    public function addCommade(commande $commade): static
+    public function addCommade(Commande $commade): static
     {
         if (!$this->commade->contains($commade)) {
             $this->commade->add($commade);
@@ -154,7 +154,7 @@ class Montre
         return $this;
     }
 
-    public function removeCommade(commande $commade): static
+    public function removeCommade(Commande $commade): static
     {
         $this->commade->removeElement($commade);
 
@@ -162,38 +162,38 @@ class Montre
     }
 
     /**
-     * @return Collection<int, fournisseur>
+     * @return Collection<int, Fournisseur>
      */
     public function getFournisseur(): Collection
     {
-        return $this->fournisseur;
+        return $this->Fournisseur;
     }
 
-    public function addFournisseur(fournisseur $fournisseur): static
+    public function addFournisseur(Fournisseur $Fournisseur): static
     {
-        if (!$this->fournisseur->contains($fournisseur)) {
-            $this->fournisseur->add($fournisseur);
+        if (!$this->Fournisseur->contains($Fournisseur)) {
+            $this->Fournisseur->add($Fournisseur);
         }
 
         return $this;
     }
 
-    public function removeFournisseur(fournisseur $fournisseur): static
+    public function removeFournisseur(Fournisseur $Fournisseur): static
     {
-        $this->fournisseur->removeElement($fournisseur);
+        $this->Fournisseur->removeElement($Fournisseur);
 
         return $this;
     }
 
     /**
-     * @return Collection<int, materiaux>
+     * @return Collection<int, Materiaux>
      */
     public function getMaterieaux(): Collection
     {
         return $this->materieaux;
     }
 
-    public function addMaterieaux(materiaux $materieaux): static
+    public function addMaterieaux(Materiaux $materieaux): static
     {
         if (!$this->materieaux->contains($materieaux)) {
             $this->materieaux->add($materieaux);
@@ -202,7 +202,7 @@ class Montre
         return $this;
     }
 
-    public function removeMaterieaux(materiaux $materieaux): static
+    public function removeMaterieaux(Materiaux $materieaux): static
     {
         $this->materieaux->removeElement($materieaux);
 
@@ -210,38 +210,38 @@ class Montre
     }
 
     /**
-     * @return Collection<int, categories>
+     * @return Collection<int, Categories>
      */
     public function getCategories(): Collection
     {
-        return $this->categories;
+        return $this->Categories;
     }
 
-    public function addCategory(categories $category): static
+    public function addCategory(Categories $category): static
     {
-        if (!$this->categories->contains($category)) {
-            $this->categories->add($category);
+        if (!$this->Categories->contains($category)) {
+            $this->Categories->add($category);
         }
 
         return $this;
     }
 
-    public function removeCategory(categories $category): static
+    public function removeCategory(Categories $category): static
     {
-        $this->categories->removeElement($category);
+        $this->Categories->removeElement($category);
 
         return $this;
     }
 
     /**
-     * @return Collection<int, avis>
+     * @return Collection<int, Avis>
      */
     public function getMontreId(): Collection
     {
         return $this->montreId;
     }
 
-    public function addMontreId(avis $montreId): static
+    public function addMontreId(Avis $montreId): static
     {
         if (!$this->montreId->contains($montreId)) {
             $this->montreId->add($montreId);
@@ -251,7 +251,7 @@ class Montre
         return $this;
     }
 
-    public function removeMontreId(avis $montreId): static
+    public function removeMontreId(Avis $montreId): static
     {
         if ($this->montreId->removeElement($montreId)) {
             // set the owning side to null (unless already changed)

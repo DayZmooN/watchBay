@@ -12,9 +12,9 @@
 			<video autoplay muted loop>
 				<source id="src_mp4" src="{{ asset('video/rolex.mp4') }}" type="video/mp4">
 			</video>
-			<div class="container_brand_materiaux">
+			<div class="container_brand_Materiaux">
 				<h1 class="title_brand">Rolex</h1>
-				<h2 class="title_materiaux">Titane. Si robuste. Si léger.</h2>
+				<h2 class="title_Materiaux">Titane. Si robuste. Si léger.</h2>
 				<div class="link_buy">
 					<span class="span_link_buy">En savoir plus ></span>
 					<span class="span_link_buy">Acheter ></span>
@@ -46,8 +46,9 @@
 
 		<div class="product_container_last_collection">
 			<h1 class="h1_product_container">Last Collection</h1>
-			<div class="product_container">
-				<a href="{{ path('catalogue') }}">Voir le catalogue</a>
+			<div
+				class="product_container">
+				{# <a href="{{ path('catalogue') }}">Voir le catalogue</a> #}
 
 				{% for montre in montres %}
 					<div class="card_product">

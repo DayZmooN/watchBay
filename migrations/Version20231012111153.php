@@ -20,34 +20,34 @@ final class Version20231012111153 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE montre_commande (montre_id INT NOT NULL, commande_id INT NOT NULL, INDEX IDX_5750B0071F3E1099 (montre_id), INDEX IDX_5750B00782EA2E54 (commande_id), PRIMARY KEY(montre_id, commande_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE montre_fournisseur (montre_id INT NOT NULL, fournisseur_id INT NOT NULL, INDEX IDX_58D4C8C81F3E1099 (montre_id), INDEX IDX_58D4C8C8670C757F (fournisseur_id), PRIMARY KEY(montre_id, fournisseur_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE montre_materiaux (montre_id INT NOT NULL, materiaux_id INT NOT NULL, INDEX IDX_272C44111F3E1099 (montre_id), INDEX IDX_272C4411806EBBB2 (materiaux_id), PRIMARY KEY(montre_id, materiaux_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE montre_categories (montre_id INT NOT NULL, categories_id INT NOT NULL, INDEX IDX_1BF75BFF1F3E1099 (montre_id), INDEX IDX_1BF75BFFA21214B7 (categories_id), PRIMARY KEY(montre_id, categories_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('ALTER TABLE montre_commande ADD CONSTRAINT FK_5750B0071F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_commande ADD CONSTRAINT FK_5750B00782EA2E54 FOREIGN KEY (commande_id) REFERENCES commande (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_fournisseur ADD CONSTRAINT FK_58D4C8C81F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_fournisseur ADD CONSTRAINT FK_58D4C8C8670C757F FOREIGN KEY (fournisseur_id) REFERENCES fournisseur (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_materiaux ADD CONSTRAINT FK_272C44111F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_materiaux ADD CONSTRAINT FK_272C4411806EBBB2 FOREIGN KEY (materiaux_id) REFERENCES materiaux (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_categories ADD CONSTRAINT FK_1BF75BFF1F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE montre_categories ADD CONSTRAINT FK_1BF75BFFA21214B7 FOREIGN KEY (categories_id) REFERENCES categories (id) ON DELETE CASCADE');
+        $this->addSql('CREATE TABLE montre_Commande (montre_id INT NOT NULL, Commande_id INT NOT NULL, INDEX IDX_5750B0071F3E1099 (montre_id), INDEX IDX_5750B00782EA2E54 (Commande_id), PRIMARY KEY(montre_id, Commande_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE montre_Fournisseur (montre_id INT NOT NULL, Fournisseur_id INT NOT NULL, INDEX IDX_58D4C8C81F3E1099 (montre_id), INDEX IDX_58D4C8C8670C757F (Fournisseur_id), PRIMARY KEY(montre_id, Fournisseur_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE montre_Materiaux (montre_id INT NOT NULL, Materiaux_id INT NOT NULL, INDEX IDX_272C44111F3E1099 (montre_id), INDEX IDX_272C4411806EBBB2 (Materiaux_id), PRIMARY KEY(montre_id, Materiaux_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE montre_Categories (montre_id INT NOT NULL, Categories_id INT NOT NULL, INDEX IDX_1BF75BFF1F3E1099 (montre_id), INDEX IDX_1BF75BFFA21214B7 (Categories_id), PRIMARY KEY(montre_id, Categories_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE montre_Commande ADD CONSTRAINT FK_5750B0071F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Commande ADD CONSTRAINT FK_5750B00782EA2E54 FOREIGN KEY (Commande_id) REFERENCES Commande (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Fournisseur ADD CONSTRAINT FK_58D4C8C81F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Fournisseur ADD CONSTRAINT FK_58D4C8C8670C757F FOREIGN KEY (Fournisseur_id) REFERENCES Fournisseur (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Materiaux ADD CONSTRAINT FK_272C44111F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Materiaux ADD CONSTRAINT FK_272C4411806EBBB2 FOREIGN KEY (Materiaux_id) REFERENCES Materiaux (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Categories ADD CONSTRAINT FK_1BF75BFF1F3E1099 FOREIGN KEY (montre_id) REFERENCES montre (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE montre_Categories ADD CONSTRAINT FK_1BF75BFFA21214B7 FOREIGN KEY (Categories_id) REFERENCES Categories (id) ON DELETE CASCADE');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE montre_commande DROP FOREIGN KEY FK_5750B0071F3E1099');
-        $this->addSql('ALTER TABLE montre_commande DROP FOREIGN KEY FK_5750B00782EA2E54');
-        $this->addSql('ALTER TABLE montre_fournisseur DROP FOREIGN KEY FK_58D4C8C81F3E1099');
-        $this->addSql('ALTER TABLE montre_fournisseur DROP FOREIGN KEY FK_58D4C8C8670C757F');
-        $this->addSql('ALTER TABLE montre_materiaux DROP FOREIGN KEY FK_272C44111F3E1099');
-        $this->addSql('ALTER TABLE montre_materiaux DROP FOREIGN KEY FK_272C4411806EBBB2');
-        $this->addSql('ALTER TABLE montre_categories DROP FOREIGN KEY FK_1BF75BFF1F3E1099');
-        $this->addSql('ALTER TABLE montre_categories DROP FOREIGN KEY FK_1BF75BFFA21214B7');
-        $this->addSql('DROP TABLE montre_commande');
-        $this->addSql('DROP TABLE montre_fournisseur');
-        $this->addSql('DROP TABLE montre_materiaux');
-        $this->addSql('DROP TABLE montre_categories');
+        $this->addSql('ALTER TABLE montre_Commande DROP FOREIGN KEY FK_5750B0071F3E1099');
+        $this->addSql('ALTER TABLE montre_Commande DROP FOREIGN KEY FK_5750B00782EA2E54');
+        $this->addSql('ALTER TABLE montre_Fournisseur DROP FOREIGN KEY FK_58D4C8C81F3E1099');
+        $this->addSql('ALTER TABLE montre_Fournisseur DROP FOREIGN KEY FK_58D4C8C8670C757F');
+        $this->addSql('ALTER TABLE montre_Materiaux DROP FOREIGN KEY FK_272C44111F3E1099');
+        $this->addSql('ALTER TABLE montre_Materiaux DROP FOREIGN KEY FK_272C4411806EBBB2');
+        $this->addSql('ALTER TABLE montre_Categories DROP FOREIGN KEY FK_1BF75BFF1F3E1099');
+        $this->addSql('ALTER TABLE montre_Categories DROP FOREIGN KEY FK_1BF75BFFA21214B7');
+        $this->addSql('DROP TABLE montre_Commande');
+        $this->addSql('DROP TABLE montre_Fournisseur');
+        $this->addSql('DROP TABLE montre_Materiaux');
+        $this->addSql('DROP TABLE montre_Categories');
     }
 }
