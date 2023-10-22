@@ -8,11 +8,13 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+// use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class MontreFilterType extends AbstractType
 {
     // src/Form/MontreFilterType.php
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('Categories', EntityType::class, [
@@ -27,6 +29,16 @@ class MontreFilterType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ]);
+        // ->add('imageFile', VichImageType::class, [
+        //     'required' => false,
+        //     'allow_delete' => true,
+        //     'delete_label' => '...',
+        //     'download_label' => '...',
+        //     'download_uri' => true,
+        //     'image_uri' => true,
+        //     'imagine_pattern' => '...',
+        //     'asset_helper' => true,
+        // ]);
     }
 
 

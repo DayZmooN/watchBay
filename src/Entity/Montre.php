@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: MontreRepository::class)]
 class Montre
 {
@@ -50,6 +51,8 @@ class Montre
 
     #[ORM\Column(length: 400)]
     private ?string $thumbnail = null;
+
+
 
     public function __construct()
     {
@@ -130,12 +133,9 @@ class Montre
         return $this->dimensions;
     }
 
-    public function setDimensions(string $dimensions): static
-    {
-        $this->dimensions = $dimensions;
 
-        return $this;
-    }
+
+
 
     /**
      * @return Collection<int, Commande>

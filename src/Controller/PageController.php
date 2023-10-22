@@ -52,15 +52,16 @@ class PageController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $Categories = $form->get('Categories')->getData();
             $Materiaux = $form->get('Materiaux')->getData();
-
             $montres = $montreRepository->findByFilters($Categories, $Materiaux);
         } else {
             $montres = $montreRepository->findAll();
         }
 
+
         return $this->render('part/catalogue.html.twig', [
             'montres' => $montres,
             'form' => $form->createView(),
+
         ]);
     }
 }

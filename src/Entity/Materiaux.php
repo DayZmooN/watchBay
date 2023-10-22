@@ -35,6 +35,10 @@ class Materiaux
     {
         return $this->type;
     }
+    public function __toString(): string
+    {
+        return $this->type ?? '';
+    }
 
     public function setType(string $type): static
     {

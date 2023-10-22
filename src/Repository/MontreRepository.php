@@ -33,7 +33,6 @@ class MontreRepository extends ServiceEntityRepository
             foreach ($Categories as $category) {
                 $CategoriesIds[] = $category->getId();
             }
-
             $qb->innerJoin('m.Categories', 'c')
                 ->andWhere('c.id IN (:Categories)')
                 ->setParameter('Categories', $CategoriesIds);
@@ -44,14 +43,15 @@ class MontreRepository extends ServiceEntityRepository
             foreach ($Materiaux as $materiau) {
                 $MateriauxIds[] = $materiau->getId();
             }
-
             $qb->innerJoin('m.Materiaux', 'mat')
                 ->andWhere('mat.id IN (:Materiaux)')
                 ->setParameter('Materiaux', $MateriauxIds);
         }
+        dump($Categories, $Materiaux);
 
         return $qb->getQuery()->getResult();
     }
+
 
 
 
